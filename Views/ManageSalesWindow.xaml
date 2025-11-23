@@ -1,0 +1,32 @@
+﻿<Window x:Class="CommandProjectUniversal.Views.ManageSalesWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Управление продажами" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="10">
+            <Button Content="Добавить" Click="AddButton_Click" Margin="0,0,10,0"/>
+            <Button Content="Редактировать" Click="EditButton_Click" Margin="0,0,10,0"/>
+            <Button Content="Удалить" Click="DeleteButton_Click" Margin="0,0,10,0"/>
+            <Button Content="Закрыть" Click="CloseButton_Click"/>
+        </StackPanel>
+
+        <DataGrid x:Name="SalesGrid" Grid.Row="1" Margin="10" AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Дата продажи" Binding="{Binding SaleDate, StringFormat=d}"/>
+                <DataGridTextColumn Header="Клиент" Binding="{Binding Customer.Name}"/>
+                <DataGridTextColumn Header="Услуга" Binding="{Binding Service.Name}"/>
+                <DataGridTextColumn Header="Цена" Binding="{Binding SalePrice, StringFormat=C}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <StatusBar Grid.Row="2">
+            <TextBlock Text="Управление продажами"/>
+        </StatusBar>
+    </Grid>
+</Window>

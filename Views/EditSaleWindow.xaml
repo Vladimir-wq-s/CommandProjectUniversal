@@ -1,0 +1,38 @@
+﻿<Window x:Class="CommandProjectUniversal.Views.EditSaleWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CommandProjectUniversal.Views"
+        mc:Ignorable="d"
+        Title="Редактирование продажи" Height="300" Width="450" WindowStartupLocation="CenterOwner">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" Content="Дата продажи:"/>
+        <DatePicker Grid.Row="1" x:Name="SaleDatePicker" Margin="0,0,0,10"/>
+
+        <Label Grid.Row="2" Content="Клиент:"/>
+        <ComboBox Grid.Row="3" x:Name="CustomerComboBox" DisplayMemberPath="Name" SelectedValuePath="Id" Margin="0,0,0,10" IsEditable="False"/>
+
+        <Label Grid.Row="4" Content="Услуга:"/>
+        <ComboBox Grid.Row="5" x:Name="ServiceComboBox" DisplayMemberPath="Name" SelectedValuePath="Id" Margin="0,0,0,10" IsEditable="False"/>
+
+        <Label Grid.Row="6" Content="Цена:"/>
+        <TextBox Grid.Row="7" x:Name="PriceTextBox" Margin="0,0,0,10"/>
+
+        <StackPanel Grid.Row="8" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="Сохранить" Click="SaveButton_Click" IsDefault="True"/>
+            <Button Content="Отмена" Click="CancelButton_Click" IsCancel="True" Margin="10,0,0,0"/>
+        </StackPanel>
+    </Grid>
+</Window>
